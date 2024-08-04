@@ -1,0 +1,25 @@
+name: Build all configurations
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "flake.lock"
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: DeterminateSystems/nix-installer-action@v12
+        with:
+          extra-conf: |
+            substituters = https://cache.nixos.org https://nix-community.cachix.org https://attic.eleonora.gay/default
+            trusted-public-keys = cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY= nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs= default:3FYh8sZV8gWa7Jc5jlP7gZFK7pt3kaHRiV70ySaQ42g=
+
+      - uses: DeterminateSystems/magic-nix-cache-action@v7
+
+      - run: nix run -L .#build
+        env:
+          ATTIC_TOKEN: ${{ secrets.ATTIC_TOKEN }}

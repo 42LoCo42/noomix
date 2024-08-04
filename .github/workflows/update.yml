@@ -1,0 +1,30 @@
+name: Update inputs
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 1/10 * *"
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+
+      - uses: DeterminateSystems/nix-installer-action@v12
+
+      - name: Update inputs
+        run: nix flake update
+
+      - name: Commit flake update
+        uses: planetscale/ghcommit-action@v0.1.39
+        with:
+          commit_message: "🤖 Update inputs"
+          repo: ${{ github.repository }}
+          branch: ${{ github.head_ref || github.ref_name }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
