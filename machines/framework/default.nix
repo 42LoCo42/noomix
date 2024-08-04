@@ -10,20 +10,18 @@
     users = {
       andrea = {
         admin = true;
+        description = "Andrea Boelen";
       };
     };
 
     filesystems = { fs, ... }: {
       disks."/dev/disk/by-id/nvme-WD_BLACK_SN770_1TB_232857804955_1".partitions = [
+        fs.defaultBoot
         {
-          type = "uefi";
-          size = "512M";
-          content = fs.regular {
-            type = "vfat";
-            mountpoint = "/boot";
+          content = fs.luks {
+            content = fs.zpool (p: p.rpool);
           };
         }
-        { content = fs.zpool (p: p.rpool); }
       ];
 
       zpools.rpool = aquaris.lib.merge [
