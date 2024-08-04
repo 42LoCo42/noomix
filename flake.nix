@@ -24,18 +24,10 @@
         inherit (pkgs.lib) pipe;
       in
       {
-        build = pipe self.nixosConfigurations [
+        all = pipe self.nixosConfigurations [
           builtins.attrValues
           (map (x: x.config.system.build.toplevel))
           (pkgs.linkFarmFromDrvs "all")
-          (x: pkgs.writeShellApplication {
-            name = "build";
-            runtimeInputs = with pkgs; [ attic-client ];
-            text = ''
-              attic login eleonora https://attic.eleonora.gay "$ATTIC_TOKEN"
-              attic push default ${x}
-            '';
-          })
         ];
       }
     )
