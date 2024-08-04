@@ -5,6 +5,9 @@ on:
   push:
     paths:
       - "flake.lock"
+  repository_dispatch:
+    types:
+      - trigger-build
 
 jobs:
   main:

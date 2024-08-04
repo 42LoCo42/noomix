@@ -6,7 +6,7 @@ on:
     - cron: "0 0 1/10 * *"
 
 jobs:
-  main:
+  update:
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -14,11 +14,30 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.head_ref }}
+          persist-credentials: false
 
       - uses: DeterminateSystems/nix-installer-action@v12
 
       - name: Update inputs
-        run: nix flake update
+        id: update
+        run: |
+          old="$(sha256sum flake.lock)"
+          nix flake update
+          new="$(sha256sum flake.lock)"
+          if [ "$old" != "$new" ]; then
+            echo "trigger-build=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Trigger build
+        if: ${{ steps.update.outputs.trigger-build }}
+        uses: actions/github-script@v7.0.1
+        with:
+          script: |
+            github.rest.repos.createDispatchEvent({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              event_type: 'trigger-build',
+            });
 
       - name: Commit flake update
         uses: planetscale/ghcommit-action@v0.1.39
