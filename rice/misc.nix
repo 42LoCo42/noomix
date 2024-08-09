@@ -15,11 +15,6 @@
       alsa.enable = true;
       pulse.enable = true;
     };
-
-    zfs = {
-      autoScrub.enable = true;
-      autoSnapshot.enable = true;
-    };
   };
 
   system.autoUpgrade = {
