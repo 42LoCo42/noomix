@@ -1,4 +1,4 @@
-{ aquaris, ... }: {
+{ aquaris, config, ... }: {
   imports = [ ../../rice ];
 
   aquaris = {
@@ -7,30 +7,15 @@
       key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINI5SfKBIes/JSsGVJKiTt2IYfTmjdgp7ZzTdeHmERL7";
     };
 
-    users = {
-      mario = {
-        admin = true;
-        description = "Mario Voigt";
-      };
+    users.mario = {
+      admin = true;
+      description = "Mario Voigt";
     };
 
     filesystems = { fs, ... }: {
-      disks."/dev/disk/by-id/TODO".partitions = [
-        fs.defaultBoot
-        {
-          content = fs.luks {
-            content = fs.zpool (p: p.rpool);
-          };
-        }
-      ];
-
-      zpools.rpool = aquaris.lib.merge [
-        fs.defaultPool
-        { datasets."nixos/home/mario".mountpoint = "/home/mario"; }
-      ];
+      disks."/dev/disk/by-id/TODO".partitions =
+        config.noomix.defaultDisk fs;
     };
-
-    persist.enable = true;
   };
 
   # TODO move to hardware.nix

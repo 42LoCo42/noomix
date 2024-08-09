@@ -1,4 +1,4 @@
-{ pkgs, config, ... }: {
+{ pkgs, config, lib, ... }: {
   i18n.defaultLocale = "de_DE.UTF-8";
 
   # TODO required?
@@ -37,4 +37,9 @@
       ];
     })
     config.aquaris.users;
+
+  home-manager.sharedModules = [{
+    aquaris.persist = lib.mkForce [ ];
+    home.sessionVariables."NIXOS_CONFIG_DIR" = "$HOME/.dotfiles";
+  }];
 }
