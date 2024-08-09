@@ -12,6 +12,8 @@
   security.rtkit.enable = true;
 
   services = {
+    fwupd.enable = true;
+
     pipewire = {
       enable = true;
       alsa.enable = true;
