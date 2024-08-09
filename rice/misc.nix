@@ -9,6 +9,8 @@
     dates = "monthly";
   };
 
+  security.rtkit.enable = true;
+
   services = {
     pipewire = {
       enable = true;
