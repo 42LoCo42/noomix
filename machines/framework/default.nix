@@ -1,4 +1,4 @@
-{ aquaris, config, ... }: {
+{ config, ... }: {
   imports = [ ../../rice ];
 
   aquaris = {
@@ -13,11 +13,8 @@
     };
 
     filesystems = { fs, ... }: {
-      disks."/dev/disk/by-id/nvme-WD_BLACK_SN770_1TB_232857804955_1".partitions =
+      disks."/dev/disk/by-id/nvme-eui.e8238fa6bf530001001b448b4a74c804".partitions =
         config.noomix.defaultDisk fs;
     };
   };
-
-  boot.initrd.systemd.emergencyAccess =
-    "$y$j9T$jbAGAMu/YMLdXTHND5Ksn0$IT07lNexnBLjW.TA2agoi4SG/PIEVpxynqAtqmJ1bgB";
 }

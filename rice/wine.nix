@@ -1,8 +1,16 @@
 { pkgs, ... }: {
   hardware.graphics = {
     enable32Bit = true;
-    extraPackages = with pkgs; [ amdvlk ];
-    extraPackages32 = with pkgs.driversi686Linux; [ amdvlk ];
+    extraPackages = with pkgs; [
+      amdvlk
+      intel-media-driver
+      intel-vaapi-driver
+    ];
+    extraPackages32 = with pkgs.driversi686Linux; [
+      amdvlk
+      intel-media-driver
+      intel-vaapi-driver
+    ];
   };
 
   home-manager.sharedModules = [{

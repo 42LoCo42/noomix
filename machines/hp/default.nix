@@ -1,4 +1,4 @@
-{ aquaris, config, ... }: {
+{ config, ... }: {
   imports = [ ../../rice ];
 
   aquaris = {
@@ -13,11 +13,8 @@
     };
 
     filesystems = { fs, ... }: {
-      disks."/dev/disk/by-id/TODO".partitions =
+      disks."/dev/disk/by-id/wwn-0x500a0751e89a8fd9".partitions =
         config.noomix.defaultDisk fs;
     };
   };
-
-  # TODO move to hardware.nix
-  nixpkgs.hostPlatform = "x86_64-linux";
 }
