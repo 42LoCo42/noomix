@@ -1,6 +1,7 @@
 { pkgs, ... }: {
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
     konsole
+    krdp
   ];
 
   home-manager.sharedModules = [{
@@ -10,7 +11,7 @@
       k3b
       kcalc
       kdenlive
-      mpv
+      libnotify
       obs-studio
       onlyoffice-bin_latest
       skanlite
@@ -18,12 +19,9 @@
 
       clinfo
       glxinfo
+      libva-utils
       vulkan-tools
       wayland-utils
-
-      # TODO required?
-      # libnotify
-      # xdg_utils
     ];
   }];
 

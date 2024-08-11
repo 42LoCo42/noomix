@@ -12,7 +12,8 @@
   security = {
     polkit.extraConfig = ''
       polkit.addRule(function(action, subject) {
-        if(action.id.match(/^org\.freedesktop\.login1\.(power-off|reboot|suspend)$/)) {
+        if(action.id.match(/^org\.freedesktop\.login1\.(power-off|reboot|suspend)$/) &&
+           subject.isInGroup("wheel")) {
           return polkit.Result.YES
         }
       });
