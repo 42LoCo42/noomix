@@ -9,7 +9,17 @@
     dates = "monthly";
   };
 
-  security.rtkit.enable = true;
+  security = {
+    polkit.extraConfig = ''
+      polkit.addRule(function(action, subject) {
+        if(action.id.match(/^org\.freedesktop\.login1\.(power-off|reboot|suspend)$/)) {
+          return polkit.Result.YES
+        }
+      });
+    '';
+
+    rtkit.enable = true;
+  };
 
   services = {
     fwupd.enable = true;
