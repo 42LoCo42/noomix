@@ -1,7 +1,7 @@
 { pkgs, ... }: {
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
     konsole
-    krdp
+    # krdp # TODO
   ];
 
   home-manager.sharedModules = [{
@@ -33,9 +33,6 @@
 
     desktopManager.plasma6.enable = true;
 
-    xserver = {
-      # enable = true; # TODO required?
-      xkb.layout = "de";
-    };
+    xserver.xkb.layout = "de";
   };
 }

@@ -1,6 +1,6 @@
 { pkgs, ... }: {
-  hardware.graphics = {
-    enable32Bit = true;
+  hardware.opengl = {
+    driSupport32Bit = true;
     extraPackages = with pkgs; [
       amdvlk
       intel-media-driver

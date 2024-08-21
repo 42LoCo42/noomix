@@ -35,7 +35,7 @@
   system.autoUpgrade = {
     enable = true;
     dates = "daily";
-    flake = "github:42loco42/noomix";
+    flake = "github:42loco42/noomix/release";
     flags = [ "--refresh" "-L" ];
     operation = "boot";
   };
