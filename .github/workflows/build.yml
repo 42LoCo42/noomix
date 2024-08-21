@@ -23,15 +23,18 @@ jobs:
             substituters = https://cache.nixos.org https://nix-community.cachix.org
             trusted-public-keys = cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY= nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs=
 
-      - name: Set up magic Nix cache
-        uses: DeterminateSystems/magic-nix-cache-action@v7
+      - name: Check flake outputs
+        run: nix flake check -L
 
-      - name: Set up Attic cache
-        uses: ryanccn/attic-action@v0.2.1
-        with:
-          endpoint: https://attic.eleonora.gay
-          cache: default
-          token: ${{ secrets.ATTIC_TOKEN }}
+      # - name: Set up magic Nix cache
+      #   uses: DeterminateSystems/magic-nix-cache-action@v7
 
-      - name: Build all configurations
-        run: nix build -L .#all
+      # - name: Set up Attic cache
+      #   uses: ryanccn/attic-action@v0.2.1
+      #   with:
+      #     endpoint: https://attic.eleonora.gay
+      #     cache: default
+      #     token: ${{ secrets.ATTIC_TOKEN }}
+
+      # - name: Build all configurations
+      #   run: nix build -L .#all
