@@ -1,4 +1,4 @@
-{ config, ... }: {
+{ pkgs, config, ... }: {
   imports = [ ../../rice ];
 
   aquaris = {
@@ -17,4 +17,8 @@
         config.noomix.defaultDisk fs;
     };
   };
+
+  home-manager.sharedModules = [{
+    home.packages = with pkgs; [ thunderbird ];
+  }];
 }

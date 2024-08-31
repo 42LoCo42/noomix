@@ -1,7 +1,7 @@
-{ pkgs, obscura, ... }: {
+{ pkgs, self, ... }: {
   nixpkgs.overlays = [
     (_: _: {
-      foot = obscura.packages.${pkgs.system}.foot-transparent;
+      foot = self.inputs.obscura.packages.${pkgs.system}.foot-transparent;
     })
   ];
 
