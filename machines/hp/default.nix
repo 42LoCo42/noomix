@@ -17,4 +17,8 @@
         config.noomix.defaultDisk fs;
     };
   };
+
+  home-manager.sharedModules = [{
+    programs.thunderbird.enable = true;
+  }];
 }
