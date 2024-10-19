@@ -1,4 +1,4 @@
-{ config, ... }: {
+{ lib, config, ... }: {
   imports = [ ../../rice ];
 
   aquaris = {
@@ -16,4 +16,12 @@
   };
 
   boot.extraModulePackages = with config.boot.kernelPackages; [ rtl8821au ];
+
+  home-manager.sharedModules = [{
+    programs.firefox.profiles.default.settings = {
+      "signon.autofillForms" = lib.mkForce true;
+      "signon.generation.enabled" = lib.mkForce true;
+      "signon.rememberSignons" = lib.mkForce true;
+    };
+  }];
 }
