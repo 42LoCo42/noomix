@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, config, ... }: {
   services.snapper = {
     persistentTimer = true;
     configs =
@@ -10,10 +10,10 @@
           TIMELINE_CLEANUP = true;
         };
       in
-      {
-        home = mk "/home";
-        persist = mk "/persist";
-      };
+      { home = mk "/home"; } //
+      (if config.aquaris.persist.enable
+      then { persist = mk "/persist"; }
+      else { root = mk "/"; });
   };
 
   home-manager.sharedModules = [{

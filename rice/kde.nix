@@ -14,6 +14,7 @@
       libnotify
       obs-studio
       onlyoffice-bin_latest
+      rustdesk-flutter
       skanlite
       vlc
 
