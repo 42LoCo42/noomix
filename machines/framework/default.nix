@@ -17,4 +17,6 @@
         config.noomix.defaultDisk fs;
     };
   };
+
+  programs.kdeconnect.enable = true;
 }
