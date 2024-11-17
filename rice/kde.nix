@@ -5,17 +5,13 @@
   ];
 
   home-manager.sharedModules = [{
-    home.packages = with pkgs; [
+    home.packages = (with pkgs; [
       ffmpeg
       gimp
-      k3b
-      kcalc
-      kdenlive
       libnotify
       obs-studio
       onlyoffice-bin_latest
       rustdesk-flutter
-      skanlite
       vlc
 
       clinfo
@@ -23,7 +19,12 @@
       libva-utils
       vulkan-tools
       wayland-utils
-    ];
+    ]) ++ (with pkgs.kdePackages; [
+      k3b
+      kcalc
+      kdenlive
+      skanlite
+    ]);
   }];
 
   services = {
