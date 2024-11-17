@@ -1,4 +1,4 @@
-{ config, ... }: {
+{ pkgs, config, ... }: {
   imports = [ ../../rice ];
 
   aquaris = {
@@ -19,4 +19,8 @@
   };
 
   programs.kdeconnect.enable = true;
+
+  home-manager.sharedModules = [{
+    home.packages = with pkgs; [ thunderbird ];
+  }];
 }
