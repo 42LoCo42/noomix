@@ -5,14 +5,16 @@
     aquaris.inputs.nixpkgs.follows = "nixpkgs";
     aquaris.inputs.obscura.follows = "obscura";
 
-    home-manager.url = "github:nix-community/home-manager/release-24.05";
+    home-manager.url = "github:nix-community/home-manager/release-24.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
 
     nur.url = "github:nix-community/nur";
+    nur.inputs.nixpkgs.follows = "nixpkgs";
 
     obscura.url = "github:42loco42/obscura";
+    obscura.inputs.nix-github-actions.follows = "";
   };
 
   outputs = { aquaris, self, ... }: aquaris.lib.merge [

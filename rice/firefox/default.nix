@@ -1,5 +1,5 @@
-{ self, config, ... }: {
-  imports = [ self.inputs.nur.nixosModules.nur ];
+{ self, pkgs, ... }: {
+  imports = [ self.inputs.nur.modules.nixos.default ];
 
   nixpkgs.config.firefox.speechSynthesisSupport = false;
 
@@ -9,7 +9,7 @@
       profiles.default = {
         settings = import ./prefs.nix;
 
-        extensions = with config.nur.repos.rycee.firefox-addons; [
+        extensions = with pkgs.nur.repos.rycee.firefox-addons; [
           canvasblocker
           istilldontcareaboutcookies
           localcdn

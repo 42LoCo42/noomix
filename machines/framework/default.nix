@@ -2,10 +2,7 @@
   imports = [ ../../rice ];
 
   aquaris = {
-    machine = {
-      id = "01ae0ac7108341b791f5bdad11c773a2";
-      key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGS1Z/POPvjauxlpVzJ9WQFqXFdYOffkN3gAvc6XxymX";
-    };
+    machine.id = "01ae0ac7108341b791f5bdad11c773a2";
 
     users.andrea = {
       admin = true;

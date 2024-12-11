@@ -13,27 +13,29 @@
       nsswins = true;
       openFirewall = true;
 
-      extraConfig = ''
-        workgroup = WORKGROUP
-        server string = primula
-        netbios name = primula
-        security = user
-        client min protocol = NT1
-        server min protocol = NT1
-        hosts allow = 0.0.0.0/0
-        guest account = nobody
-        map to guest = bad user
-      '';
+      settings = {
+        global = {
+          "client min protocol" = "NT1";
+          "guest account" = "nobody";
+          "hosts allow" = "0.0.0.0/0";
+          "map to guest" = "bad user";
+          "netbios name" = "primula";
+          "security" = "user";
+          "server min protocol" = "NT1";
+          "server string" = "primula";
+          "workgroup" = "WORKGROUP";
+        };
 
-      shares.vhs = {
-        path = "/home/jana/VHS";
-        browseable = "yes";
-        "read only" = "no";
-        "guest ok" = "yes";
-        "create mask" = "0644";
-        "directory mask" = "0755";
-        "force user" = "jana";
-        "force group" = "users";
+        vhs = {
+          "browseable" = "yes";
+          "create mask" = "0644";
+          "directory mask" = "0755";
+          "force group" = "users";
+          "force user" = "jana";
+          "guest ok" = "yes";
+          "path" = "/home/jana/VHS";
+          "read only" = "no";
+        };
       };
     };
 

@@ -1,11 +1,13 @@
 { pkgs, ... }: {
-  hardware.opengl = {
-    driSupport32Bit = true;
+  hardware.graphics = {
+    enable = true;
     extraPackages = with pkgs; [
       amdvlk
       intel-media-driver
       intel-vaapi-driver
     ];
+
+    enable32Bit = true;
     extraPackages32 = with pkgs.driversi686Linux; [
       amdvlk
       intel-media-driver
