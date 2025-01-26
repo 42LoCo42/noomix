@@ -17,11 +17,15 @@
 
   boot.extraModulePackages = with config.boot.kernelPackages; [ rtl8821au ];
 
+  networking.firewall.allowedTCPPorts = [ 22000 ];
+
   home-manager.sharedModules = [{
     programs.firefox.profiles.default.settings = {
       "signon.autofillForms" = lib.mkForce true;
       "signon.generation.enabled" = lib.mkForce true;
       "signon.rememberSignons" = lib.mkForce true;
     };
+
+    services.syncthing.enable = true;
   }];
 }
