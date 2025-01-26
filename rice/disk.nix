@@ -28,9 +28,9 @@ in
 
   config.aquaris.persist = {
     enable = mkDefault true;
-    dirs = [
-      "/var/lib/cups"
-      "/var/lib/upower"
-    ];
+    dirs = {
+      "/var/lib/cups" = { };
+      "/var/lib/upower" = { };
+    };
   };
 }

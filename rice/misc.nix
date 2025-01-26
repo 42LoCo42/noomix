@@ -49,7 +49,7 @@
     config.aquaris.users;
 
   home-manager.sharedModules = [{
-    aquaris.persist = lib.mkForce [ ];
+    aquaris.persist = lib.mkForce { };
     home.sessionVariables."NIXOS_CONFIG_DIR" = "$HOME/.dotfiles";
   }];
 }
