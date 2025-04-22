@@ -1,39 +1,41 @@
-# -*- mode: yaml; truncate-lines: t; -*- vi: nowrap
+admin:
+  leonsch:
+    :key: k2QPmktD7CmwJTXtvGfYxTfmoT_2dgrWb4oLykzBf0s
+    :import:
+      - machine
 
-admin:leonsch:
-    key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDdkJo7RMoxUkuQ55YT1q5KANHrR+OJZzeYejpJW4rty"
-    contains:
-        - "machine:framework"
-        - "machine:hp"
-        - "machine:primula"
-        - "machine:test"
-machine:framework:
-    key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGS1Z/POPvjauxlpVzJ9WQFqXFdYOffkN3gAvc6XxymX"
-    contains:
-        - "user:andrea"
-machine:hp:
-    key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINI5SfKBIes/JSsGVJKiTt2IYfTmjdgp7ZzTdeHmERL7"
-    contains:
-        - "user:mario"
-machine:primula:
-    key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBy/Ki0FW7mFs5BllgGmSMIMzu5O4UOaarwHQYWtQepe"
-    contains:
-        - "user:jana"
-machine:test:
-    key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPQcGK0WSAxXomRKVFE5g8FgjsOeiB6ke8cDt0S04rS/"
-    contains:
-        - "user:test"
-    secrets:
-        recovery: "vp%d6wO#0#D2N>tz/dgCA+v4Gf:YG@aAIQqeOeDFh8N9Gatu$/heCM3wh^K>wPz(+pIUb/ic^2Eh+mT$qbx.Lsy+(nn[o.MnI-tEpi?dYsU<$6p=6$8rwWJvlu+>vfLCr3fN4wmf(Y^2x?HuIgJl/nCUo@qpJn-*mkFY^eJ$p#B7^dpwhl21f/Zv!ibIV8k{e6Px?hr9k$BEyqCw(BsA30pg=WG!iD5$Emr}phhCd1BA5H3LB#9-iq3]{jAxd3mC1keFrX3Hbr+lF+vkfAqza3@Nr5wr5C$@0tvSuYZiCyr^o:SE7eG^IxDtDhMgg>3lz*1JHlVud3k$USZm@g.umRjeym(CoBC}}%5D001vq3}ig&MbF]h1gw=wX%AI7+OB%LHh&deAJkOFug/*=^T:53:E!l}}Ryb?.Y>/Mc?Zs0hlF+Asl&}aK=ImcH3l7pkG}{IWd!h7ejoE@ZBMIASb}DN=d74/-HF2e$mkpRghnw3h:&a2"
-user:andrea:
-    secrets:
-        password: "vp%d6wO#0#D2N>tz/dgCA+v4Gf:YG@aAIQqeOeDFh8N9Gatu$/heCM3o?PFsixo&LyJ8^qn[gmGx(M{rC2qu#hHeB:t5VA5h-b+fvp?eXfkkRqnjWVroE<TRyGBkKp^^Y/l%s.zy+N+avMnB8CWTojxkI(>rBXS{gIZFceJ$p#B7^dpwhl21f/ZvMm]<.3Coz32o*QTly&zsfz/n0=rBEW%o!]<th-tbuyf24]lSL@}xFz>fry7C3fByYMmmYi?A=TJ=moSDhz!p^Xs-(SqqzG}wyGJ(pv)TTCCw{nPhdQRXv*T!teG=/Xp<C#GA.ZEAxH$iLpEuThydzc6gDe/ZrbLR?CxNZ?l#K+jib9Xsq3#nA]rC(#hY70y){j/J0ZXB8u7U%P2]*vfKi-XcoF#D#x4Ewe[?=f<RkS!$=claSA?oGe&?A*RY=.>vQZiSiA.Wsr23B:[5Ef4@rMIoP&<lQEF0*G$&6yKeP#(tw*wLBv)QI[R"
-user:jana:
-    secrets:
-        password: "vp%d6wO#0#D2N>tz/dgCA+v4Gf:YG@aAIQqeOeDFh8N9Gatu$/heCM3h.[k%q=4:GB76u8qC?E9nn}6*r.EBni6}4%CxV?KB8$Iyn<NX[vouwlA-#T)hA9AYv}[W(z+<gWq:A=Zl@dYDvOeQpi8im(wQm(-oM-u)vl43?eJ$p#B7^dpwhl21f/ZvLyH.Tfq6oZUhe>(Go*.oACst}Lgf5i*zDf8pxl!+Zy<6[!q9)=Kr8=XpA=MEWx9}u(A56*Ribh9eDm%27vk8h3pe$mGhaPGBd@E<IoJBX{o)P-Qgc][(x9{jxeG^>Cf>TD*ADkibp/7gWg=ox2Bz2l8y&8NXCs1O?BYzK3rzX0:BB4!2nEvm!QUr&opB@?pS<Wh9GpU2nlwUztEhtF@]O0FB>T<}&w$CEAs1-{Jftbbk]u${+r!LKI)L!=G!itR{IQhmOls<Sy7sdLAK#Sl3[BMc3[rhvT&jZL*I-jAcG#T@%-T62*PrRKP"
-user:mario:
-    secrets:
-        password: "vp%d6wO#0#D2N>tz/dgCA+v4Gf:YG@aAIQqeOeDFh8N9GaxyoNr7fUbnlGLtA7-.%vSTp}pEm(%mS}N5s8@h6q+Perl{Uo}f!$Nwraoz)nKuL!nKt%az9*@KzC>Z}oeg0HnLKhHvp%)ByiAopsxWKNq=^&]B-gw:oj{6*eJ$p#B7^dpwhl21f/Zvgt17q+k{gnwpCCZ!gdr&Hiwtz)l]mwCn[H^:A:<q^mM1<qwoQ^5BA?[tgInZ]A%::DCwP]:pf7<<s$})zvmjZehEPANzF9{dwjP0VoMR%.v>ZCBmmQJXmg7Q#eG^ISnQt2-l}}h<w[#6SBy)p6fL0*JqAcKkBv4S>s5h<Ez!8ymp?<fxzWKl>pv0?1S+l?qnsDnikZA<bFg1U-]SYk(]$1ica.z?kb+BcL9BUy?qYU}(:eQhb[&/Yz>jUP{d=%)qW{Sq^&k)NKiZ#EaCIT2+(FWBvS@?7%K6W?CnhpGO@f%=6Acgv2lsJJ5"
-user:test:
-    secrets:
-        password: "vp%d6wO#0#D2N>tz/dgCA+v4Gf:YG@aAIQqeOeDFh8N9Gatu$/heCM3fJx#JzcxN^qf28+C41@MABJuLr7Zm-q![vcD16&kpIzTKwjQJ6Btm$Do!/Q:x>8o]gJMk!BV8PDy+![ez9*NkhC^4+fIt?fgGWmGk$M8+BYJz/eJ$p#B7^dpwhl21f/Zv!ibIV8k{f@MCXgbslVMf+wIFd1BXE9msX?^]pJHU$oIwz?k$$iji8@EEh!3/ysQEDbB8j%3wkjT?CWUuaoj?QLzFTPbpd]FEh!=}-hHn>dvq[RqAyBtsA%:GJeG/mafha/9iDxf@Bz=a(q:@MTpc}Aawk#AFnh$3WxH>-}pGIgbp=S0dk)*e[[VxMoBqG?HV82{m@>hQay^1FGX!Cc-U!pfztf?HPgj9/0@)QYEfV9Sdb&Ye&GSNW07OTe3V7MuV)}M>46tnmYS#{ZHX&+2xoD-*PUcQ4ddz:5Nmh#w)jKl=8BF(02}xwML"
+machine:
+  framework:
+    :key: c6sRg2_aY94naJwhqKn6KgcVNAetMv8lg8zfAGXoQX0
+    :import:
+      - user/andrea
+
+  hp:
+    :key: HtAU3cwsCcJMU9ZebrWO4763ZrphnKOmOkEyPZQ4ACo
+    :import:
+      - user/mario
+
+  primula:
+    :key: ZG939aikclsft1nO6lpss7oUo4LHxameELu01C3VT0c
+    :import:
+      - user/jana
+
+  test:
+    :key: 7gNA5SK5s_sNWCmHeivn4hgu0bR12mRXT_Yf5S6lRns
+    :import:
+      - user/test
+
+    recovery:
+
+user:
+  andrea:
+    password:
+
+  mario:
+    password:
+
+  jana:
+    password:
+
+  test:
+    password:
