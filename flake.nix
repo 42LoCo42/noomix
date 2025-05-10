@@ -15,7 +15,6 @@
     nur.inputs.nixpkgs.follows = "nixpkgs";
 
     obscura.url = "github:42loco42/obscura";
-    obscura.inputs.nix-github-actions.follows = "";
   };
 
   outputs = { aquaris, self, ... }: aquaris.lib.merge [
