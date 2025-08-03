@@ -1,17 +1,9 @@
 { pkgs, ... }: {
-  nixpkgs.overlays = [
-    (final: prev: {
-      nerdfonts = prev.nerdfonts.override {
-        fonts = [ "Iosevka" ];
-      };
-    })
-  ];
-
   fonts = {
     packages = with pkgs; [
+      nerd-fonts.iosevka
       noto-fonts
       noto-fonts-emoji
-      nerdfonts
     ];
 
     fontconfig.defaultFonts = {

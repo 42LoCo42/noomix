@@ -3,6 +3,7 @@
 
   aquaris = {
     machine.id = "b1aedb4da0644dac4fc34fce66af41e3";
+    secrets.pub = "HtAU3cwsCcJMU9ZebrWO4763ZrphnKOmOkEyPZQ4ACo";
 
     users.mario = {
       admin = true;
