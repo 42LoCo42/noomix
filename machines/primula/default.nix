@@ -19,6 +19,7 @@
 
   home-manager.sharedModules = [{
     programs.firefox.profiles.default.settings = {
+      "browser.startup.page" = lib.mkForce 1; # firefox home page
       "signon.autofillForms" = lib.mkForce true;
       "signon.generation.enabled" = lib.mkForce true;
       "signon.rememberSignons" = lib.mkForce true;
